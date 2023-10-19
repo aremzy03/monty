@@ -54,7 +54,7 @@ void _nop(stack_t **head, unsigned int line_number)
 /**
  * _pchar - converts the first stack to character
  * @head: pointer to list
- * @line_number: the line number 
+ * @line_number: the line number
 */
 void _pchar(stack_t **head, unsigned int line_number)
 {
@@ -87,7 +87,7 @@ void _pchar(stack_t **head, unsigned int line_number)
 /**
  * _pstr - converts the first stack to character
  * @head: pointer to list
- * @line_number: the line number 
+ * @line_number: the line number
 */
 void _pstr(stack_t **head, unsigned int line_number)
 {
