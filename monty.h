@@ -69,8 +69,10 @@ extern global_t global;
    /* FUNCTIONS */
   /*-----------*/
 int _exec(char *command, stack_t **node, unsigned int count, FILE *file);
+void _stack(stack_t **head, unsigned int line_number);
+void _queue(stack_t **head, unsigned int line_number);
 void add_dnodeint(stack_t **head, const int n);
-stack_t *add_dnodeint_end(stack_t **head, const int n);
+void add_dnodeint_end(stack_t **head, const int n);
 void _push(stack_t **head, unsigned int line_number);
 void _pop(stack_t **head, unsigned int line_number);
 void _pall(stack_t **head, unsigned int line_number);
@@ -82,6 +84,8 @@ void _sub(stack_t **head, unsigned int line_number);
 void _div(stack_t **head, unsigned int line_number);
 void _mul(stack_t **head, unsigned int line_number);
 void _mod(stack_t **head, unsigned int line_number);
+void _pchar(stack_t **head, unsigned int line_number);
+void _pstr(stack_t **head, unsigned int line_number);
 void free_node(stack_t *head);
 int dlistint_len(const stack_t *h);
 #endif

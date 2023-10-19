@@ -51,3 +51,59 @@ void _nop(stack_t **head, unsigned int line_number)
 	(void)*head;
 	(void)line_number;
 }
+/**
+ * _pchar - converts the first stack to character
+ * @head: pointer to list
+ * @line_number: the line number 
+*/
+void _pchar(stack_t **head, unsigned int line_number)
+{
+	stack_t *h;
+	int chr;
+
+	h = *head;
+	if (h == NULL)
+	{
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
+		fclose(global.file);
+		free(global.command);
+		free_node(*head);
+		exit(EXIT_FAILURE);
+	}
+	chr = h->n;
+	if (chr >= 65 || chr <= 122)
+	{
+		printf("%c\n", chr);
+	}
+	else
+	{
+		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
+		fclose(global.file);
+		free(global.command);
+		free_node(*head);
+		exit(EXIT_FAILURE);
+	}
+}
+/**
+ * _pstr - converts the first stack to character
+ * @head: pointer to list
+ * @line_number: the line number 
+*/
+void _pstr(stack_t **head, unsigned int line_number)
+{
+	stack_t *h;
+
+	(void)line_number;
+	h = *head;
+	if (h == NULL)
+		return;
+	while (h != NULL)
+	{
+		if (h->n >= 65 || h->n <= 122)
+		{
+			printf("%d", h->n);
+		}
+		h = h->next;
+	}
+	printf("\n");
+}

@@ -21,3 +21,27 @@ void _pop(stack_t **head, unsigned int line_number)
 	*head = (*head)->next;
 	free(temp);
 }
+/**
+ * _stack - changes the mode to stack
+ * at end for queue
+ * @head: pointer to list
+ * @line_number: the line number
+*/
+void _stack(stack_t **head, unsigned int line_number)
+{
+	(void)*head;
+	(void)line_number;
+	global.mode = 0;
+}
+/**
+ * _queue - changes the mode to queue
+ * at end for queue
+ * @head: pointer to list
+ * @line_number: the line number
+*/
+void _queue(stack_t **head, unsigned int line_number)
+{
+	(void)*head;
+	(void)line_number;
+	global.mode = 1;
+}

@@ -13,7 +13,8 @@ int _exec(char *command, stack_t **node, unsigned int count, FILE *file)
 	instruction_t cmd[] = {
 		{"push", _push}, {"pop", _pop}, {"pall", _pall}, {"nop", _nop},
 		{"pint", _pint}, {"swap", _swap}, {"add", _add}, {"sub", _sub},
-		{"div", _div}, {"mul", _mul}, {"mod", _mod},
+		{"div", _div}, {"mul", _mul}, {"mod", _mod}, {"pchar", _pchar},
+		{"pstr", _pstr}, {"stack", _stack}, {"queue", _queue},
 		{NULL, NULL}
 	};
 	int i = 0;

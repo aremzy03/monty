@@ -34,7 +34,7 @@ void add_dnodeint(stack_t **head, const int n)
  *
  * Return: the new node added
 */
-stack_t *add_dnodeint_end(stack_t **head, const int n)
+void add_dnodeint_end(stack_t **head, const int n)
 {
 	stack_t *temp, *tp;
 
@@ -48,21 +48,23 @@ stack_t *add_dnodeint_end(stack_t **head, const int n)
 		exit(EXIT_FAILURE);
 	}
 	temp->n = n;
-	temp->prev = NULL;
 	temp->next = NULL;
 	if (*head == NULL)
 	{
+		temp->prev = NULL;
 		*head = temp;
-		return (*head);
 	}
-	tp = *head;
-	while (tp->next != NULL)
+	else
 	{
-		tp = tp->next;
+		tp = *head;
+		while (tp->next != NULL)
+		{
+			tp = tp->next;
+		}
+		tp->next = temp;
+		temp->prev = tp;
+		*head = temp;
 	}
-	tp->next = temp;
-	temp->prev = tp;
-	return (*head);
 }
 
 /**

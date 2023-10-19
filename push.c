@@ -38,7 +38,7 @@ void _push(stack_t **head, unsigned int line_number)
 	{
 		add_dnodeint(head, num);
 	}
-	else
+	else if (global.mode == 1)
 	{
 		add_dnodeint_end(head, num);
 	}
