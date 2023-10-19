@@ -71,7 +71,7 @@ void _pchar(stack_t **head, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	chr = h->n;
-	if (chr >= 65 || chr <= 122)
+	if (chr >= 32 || chr <= 122)
 	{
 		printf("%c\n", chr);
 	}
@@ -99,10 +99,14 @@ void _pstr(stack_t **head, unsigned int line_number)
 		return;
 	while (h != NULL)
 	{
-		if (h->n >= 65 || h->n <= 122)
+		if (h->n == 0)
+			break;
+		if (h->n >= 31 || h->n <= 122)
 		{
-			printf("%d", h->n);
+			printf("%c", h->n);
 		}
+		else
+			break;
 		h = h->next;
 	}
 	printf("\n");
