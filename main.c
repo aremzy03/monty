@@ -40,6 +40,7 @@ int main(int ac, char **av)
 		}
 	}
 	fclose(file);
-	free(node);
+	free(command);
+	free_node(node);
 	return (0);
 }

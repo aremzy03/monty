@@ -47,7 +47,7 @@ typedef struct instruction_s
 /**
  * struct globa_s - contains important global var
  * @file: the file name
- * @content: contains the content of the file
+ * @command: contains the command passed in the file
  * @mode: to change the mode from stack to queue
  * @node: a pointer to linked list
  * 
@@ -64,7 +64,7 @@ typedef struct global_s
    /*-----------------*/
   /* GLOBAL VARIABLE */
  /*-----------------*/
- extern global_t global;
+extern global_t global;
     /*-----------*/
    /* FUNCTIONS */
   /*-----------*/

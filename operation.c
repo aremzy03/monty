@@ -13,7 +13,7 @@ void _add(stack_t **head, unsigned int line_number)
 	length = dlistint_len(h);
 	if (length < 2)
 	{
-		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
 		fclose(global.file);
 		free(global.command);
 		free_node(*head);
@@ -39,7 +39,7 @@ void _sub(stack_t **head, unsigned int line_number)
 	length = dlistint_len(h);
 	if (length < 2)
 	{
-		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
 		fclose(global.file);
 		free(global.command);
 		free_node(*head);
@@ -65,13 +65,21 @@ void _div(stack_t **head, unsigned int line_number)
 	length = dlistint_len(h);
 	if (length < 2)
 	{
-		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
 		fclose(global.file);
 		free(global.command);
 		free_node(*head);
 		exit(EXIT_FAILURE);
 	}
 	h = *head;
+	if (h->n == 0)
+	{
+		fprintf(stderr, "L%d: division by zero\n", line_number);
+		fclose(global.file);
+		free(global.command);
+		free_node(*head);
+		exit(EXIT_FAILURE);
+	}
 	result = h->n / h->next->n;
 	h->next->n = result;
 	*head = h->next;
@@ -91,7 +99,7 @@ void _mul(stack_t **head, unsigned int line_number)
 	length = dlistint_len(h);
 	if (length < 2)
 	{
-		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
 		fclose(global.file);
 		free(global.command);
 		free_node(*head);
@@ -117,13 +125,21 @@ void _mod(stack_t **head, unsigned int line_number)
 	length = dlistint_len(h);
 	if (length < 2)
 	{
-		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't mod, stack too short\n", line_number);
 		fclose(global.file);
 		free(global.command);
 		free_node(*head);
 		exit(EXIT_FAILURE);
 	}
 	h = *head;
+	if (h->n == 0)
+	{
+		fprintf(stderr, "L%d: division by zero\n", line_number);
+		fclose(global.file);
+		free(global.command);
+		free_node(*head);
+		exit(EXIT_FAILURE);
+	}
 	result = h->n % h->next->n;
 	h->next->n = result;
 	*head = h->next;
